@@ -8,13 +8,14 @@ export const App: React.FC = () => {
     const [value, setValue] = useState<number>(0)
     const minValue: number = 0
     const maxValue: number = 5
+
     const incFunc = () => {
         (value >= minValue && value < maxValue) && setValue(value+1)
     }
     const resFunc = () => {setValue(0)}
 
-    const disabledIncButton = (value: number) => value && value === 5 ? true : false
-    const disabledResButton = (value: number) => !value ? true : false
+    const disabledIncButton = (value: number) => !!(value && value === 5)
+    const disabledResButton = (value: number) => !value
 
     return (
         <div className={s.counter}>
